@@ -16,7 +16,7 @@ import static com.example.kanban_backend.utils.ClassUtils.buildLocation;
  */
 //localhost:8080/tasks/
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/api/tasks")
 public class TaskController {
 
     @Autowired

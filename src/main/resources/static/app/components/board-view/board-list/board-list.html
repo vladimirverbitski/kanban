@@ -1,0 +1,29 @@
+<div class="col-md-2">
+    <div class="board-view__column">
+        <div class="row" ui-tree="treeOptions" data-drag-enabled="tree.enabled" data-max-depth="5" data-drag-delay="500">
+            <div class="col-md-12">
+                <h3 class="board-view__column-name">{{task.category}}</h3>
+            </div>
+            <div ui-tree-nodes ng-model="$ctrl.boardService.selectedField">
+                <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.boardService.taskList">
+                    <div class="panel panel-primary" ui-tree-handle>
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{taskInfo.title}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{taskInfo.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="board-view__add-button board-view__add-button-white">Add task</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+    <div class="board-view__add-board">
+        <button class="board-view__add-button board-view__add-button-gray">Add board</button>
+    </div>
+</div>

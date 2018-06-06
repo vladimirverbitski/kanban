@@ -1,0 +1,66 @@
+{
+  "0": {
+    "id": "0",
+    "category": "To Do",
+    "tasks": {
+      "0": {
+        "name": "Task 1",
+        "description": "Lorem ipsum",
+        "checklist": {
+          "0": "test",
+          "1": "shmest"
+        }
+      }
+    }
+  },
+  "1": {
+    "id": "1",
+    "category": "In progress",
+    "tasks": {
+      "0": {
+        "name": "Task 2",
+        "description": "Lorem ipsum",
+        "checklist": {
+          "0": "test",
+          "1": "shmest"
+        }
+      },
+      "1": {
+        "name": "Task 10",
+        "description": "Lorem ipsum",
+        "checklist": {
+          "0": "test",
+          "1": "bebebe"
+        }
+      }
+    }
+  },
+  "2": {
+    "id": "2",
+    "category": "In review",
+    "tasks": {
+      "0": {
+        "name": "Task 3",
+        "description": "Lorem ipsum",
+        "checklist": {
+          "0": "test",
+          "1": "bebebe"
+        }
+      }
+    }
+  },
+  "3": {
+    "id": "3",
+    "category": "Done",
+    "tasks": {
+      "0": {
+        "name": "Task 5",
+        "description": "Lorem ipsum",
+        "checklist": {
+          "0": "test",
+          "1": "bebebe"
+        }
+      }
+    }
+  }
+}
