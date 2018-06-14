@@ -44,7 +44,7 @@ module.exports = {
         new ExtractTextPlugin("[name]-[hash].css")
     ],
     cache: true,
-    devtool: '#inline-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         port: 8888,
         historyApiFallback: {
