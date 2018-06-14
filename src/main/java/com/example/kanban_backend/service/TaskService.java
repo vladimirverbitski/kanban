@@ -30,7 +30,4 @@ public class TaskService {
         return taskRepository.save(entity);
     }
 
-//    public Task updateTask(Long id) {
-//
-//    }
 }

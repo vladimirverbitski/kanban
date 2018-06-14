@@ -24,7 +24,7 @@
     "update-deps": "npm update",
     "prestart": "npm install",
     "start": "webpack-dev-server --progress --colors --inline",
-    "build": "node node_modules/webpack/bin/webpack.js",
+    "build": "webpacp -p ",
     "pretest": "npm install",
     "test": "[ -f dist/bundle.js ]",
     "test-single-run": "karma start karma.conf.js --single-run",
