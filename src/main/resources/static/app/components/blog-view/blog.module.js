@@ -7,12 +7,8 @@ export const BlogModule = angular
         uiRouter
     ])
     .component('blog', BlogComponent)
-    .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+    .config(($stateProvider, $urlRouterProvider) => {
         'ngInject';
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
         $stateProvider
             .state('blog', {
                 parent: 'app',

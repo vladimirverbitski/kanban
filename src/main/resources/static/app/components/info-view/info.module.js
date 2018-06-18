@@ -1,6 +1,6 @@
 import 'angular';
 import uiRouter from '@uirouter/angularjs';
-import { InfoComponent } from './info.component';
+import {InfoComponent} from './info.component';
 
 export const InfoModule = angular
     .module('info', [

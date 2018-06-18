@@ -39,12 +39,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(PATHS.src, 'index.html'),
-            filename: 'index.html',
+            filename: 'index.html'
         }),
         new ExtractTextPlugin("[name]-[hash].css")
     ],
     cache: true,
-    devtool: 'eval-source-map',
+    devtool: '#inline-source-map',
     devServer: {
         port: 8888,
         historyApiFallback: {
@@ -57,6 +57,6 @@ module.exports = {
     },
     entry: "./app/app.module.js",
     output: {
-        filename: "bundle.js"
+        filename: 'bundle.js'
     }
 }
