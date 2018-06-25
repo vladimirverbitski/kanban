@@ -7,10 +7,12 @@ export const BoardListComponent = {
         constructor(BoardService) {
             "ngInject";
             this.boardService = BoardService;
+            this.boardService.loadTasks();
+            this.boardService.loadCats();
         }
 
         $onInit() {
-            this.boardService.loadTasks();
+
         }
 
     }

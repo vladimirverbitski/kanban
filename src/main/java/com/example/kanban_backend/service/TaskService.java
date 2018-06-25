@@ -1,3 +1,8 @@
+/**
+ * @version 1.0 - 04.06.2018
+ * @author vverbitskiy
+ */
+
 package com.example.kanban_backend.service;
 
 import com.example.kanban_backend.domain.Task;
@@ -6,11 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-/**
- * @version 1.0 - 04.06.2018
- * @author vverbitskiy
- */
 
 @Service
 public class TaskService {

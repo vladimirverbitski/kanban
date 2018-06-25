@@ -14,7 +14,7 @@ import static com.example.kanban_backend.utils.ClassUtils.buildLocation;
  * @version 1.0 - 04.06.2018
  * @author vverbitskiy
  */
-//localhost:8080/tasks/
+
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {

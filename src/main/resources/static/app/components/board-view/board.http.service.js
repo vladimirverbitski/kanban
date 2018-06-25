@@ -7,10 +7,10 @@ export class BoardHttpService {
         this.$http = $http;
     }
 
-    // getTasks() {
-    //     return this.$http.get('/data/tasks.json')
-    //         .then(response => response.data);
-    // }
+    getCats() {
+        return this.$http.get('/api/categories')
+            .then(response => response.data);
+    }
 
     getTasks() {
         return this.$http.get('/api/tasks')

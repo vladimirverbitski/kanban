@@ -2,8 +2,18 @@ export class BoardService {
     constructor(BoardHttpService) {
         'ngInject';
         this.boardHttpService = BoardHttpService;
+        this._categoryList = [];
         this._taskList = [];
         this._selectedFields = [];
+    }
+
+    loadCats() {
+        return this.boardHttpService.getCats()
+            .then(response => this._categoryList = response);
+    }
+
+    get categoryList() {
+        return this._categoryList;
     }
 
     loadTasks() {

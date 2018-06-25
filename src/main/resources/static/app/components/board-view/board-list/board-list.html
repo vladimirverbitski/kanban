@@ -1,8 +1,8 @@
-<div class="col-md-2">
+<div class="col-md-2" ng-repeat="category in $ctrl.boardService.categoryList">
     <div class="board-view__column">
         <div class="row" ui-tree="treeOptions" data-drag-enabled="tree.enabled" data-max-depth="5" data-drag-delay="500">
             <div class="col-md-12">
-                <h3 class="board-view__column-name">{{task.category}}</h3>
+                <h3 class="board-view__column-name">{{category.title}}</h3>
             </div>
             <div ui-tree-nodes ng-model="$ctrl.boardService.selectedField">
                 <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.boardService.taskList">
