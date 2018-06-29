@@ -3,8 +3,9 @@ import template from './board.html';
 export const BoardComponent = {
     template,
     controller: class BoardComponent {
-        constructor() {
+        constructor(BoardService) {
             'ngInject';
+            this.boardService = BoardService;
         }
     }
 };

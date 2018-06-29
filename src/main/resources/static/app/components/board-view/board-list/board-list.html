@@ -1,11 +1,11 @@
-<div class="col-md-2" ng-repeat="category in $ctrl.boardService.categoryList">
+<div class="col-md-2" ng-repeat="category in $ctrl.catList">
     <div class="board-view__column">
         <div class="row" ui-tree="treeOptions" data-drag-enabled="tree.enabled" data-max-depth="5" data-drag-delay="500">
             <div class="col-md-12">
                 <h3 class="board-view__column-name">{{category.title}}</h3>
             </div>
             <div ui-tree-nodes ng-model="$ctrl.boardService.selectedField">
-                <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.boardService.taskList">
+                <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.taskList" ng-if="category.id.toString() === taskInfo.category">
                     <div class="panel panel-primary" ui-tree-handle>
                         <div class="panel-heading">
                             <h3 class="panel-title">{{taskInfo.title}}</h3>
@@ -16,8 +16,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <button class="board-view__add-button board-view__add-button-white">Add task</button>
+            <div class="col-md-12" ng-show="$ctrl.isVisible && category.id === 1">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="formTask">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            <div class="col-md-12" ng-show="category.id === 1">
+                <button class="board-view__add-button board-view__add-button-white" ng-click="$ctrl.openTaskForm()">Add task</button>
             </div>
         </div>
     </div>

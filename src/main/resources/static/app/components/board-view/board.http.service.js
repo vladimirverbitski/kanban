@@ -7,8 +7,18 @@ export class BoardHttpService {
         this.$http = $http;
     }
 
+    postCategory(request) {
+        return this.$http.post('/api/categories', request)
+            .then(response => response.data);
+    }
+
     getCats() {
         return this.$http.get('/api/categories')
+            .then(response => response.data);
+    }
+
+    postTask(request) {
+        return this.$http.post('/api/tasks', request)
             .then(response => response.data);
     }
 

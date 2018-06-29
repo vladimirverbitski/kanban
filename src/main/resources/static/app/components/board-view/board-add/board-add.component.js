@@ -1,12 +1,12 @@
-import template from "./board-form.html";
+import template from "./board-add.html";
 
-export const BoardFormComponent = {
+export const BoardAddComponent = {
     bindings: {
         tasks: '<',
     },
     controllerAs: 'ctrl',
     template,
-    controller: class BoardFormController {
+    controller: class BoardAddController {
         constructor() {
             'ngInject';
         }
