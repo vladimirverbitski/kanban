@@ -1,11 +1,10 @@
 import template from "./board-list.html";
-import {BoardModel} from "../board.model";
 
 export const BoardListComponent = {
     template,
     controller: class BoardListController {
 
-        constructor(BoardService, BoardHttpService) {
+        constructor(BoardService, BoardHttpService, BoardModel) {
             "ngInject";
             this.boardService = BoardService;
             this.boardHttpService = BoardHttpService;
@@ -34,8 +33,8 @@ export const BoardListComponent = {
             this.isVisible = this.isVisible ? false : true;
         }
 
-        submitNewTask() {
-            this.boardHttpService.submitTask(this.boardModel.task.request);
+        submitNewClaim() {
+            this.boardHttpService.submitTask(this.createClaimModel.claim.request);
         }
 
     }

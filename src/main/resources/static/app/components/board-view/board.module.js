@@ -4,13 +4,11 @@ import {BoardComponent} from './board.component';
 import {BoardService} from "./board.service";
 import {BoardHttpService} from "./board.http.service";
 import {BoardListModule} from "./board-list/board-list.module"
-import {BoardAddModule} from "./board-add/board-add.module";
 
 export const BoardModule = angular
     .module('board', [
         uiRouter,
-        BoardListModule,
-        BoardAddModule
+        BoardListModule
     ])
     .component('board', BoardComponent)
     .service('BoardService', BoardService)
