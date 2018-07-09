@@ -17,14 +17,16 @@ export class BoardHttpService {
             .then(response => response.data);
     }
 
-    postTask(request) {
-        return this.$http.post('/api/tasks', request)
-            .then(response => response.data);
-    }
-
     getTasks() {
         return this.$http.get('/api/tasks')
             .then(response => response.data);
     }
 
+    submitTask(request, taskId) {
+        if (taskId == undefined) {
+            return this.$http
+                .post('/api/tasks', request)
+                .then(response => response.data)
+        }
+    }
 }
