@@ -33,4 +33,8 @@ export class BoardService {
         field.added = false;
         return this._selectedFields.splice(this._selectedFields.map(f => f.code).indexOf(field.code), 1);
     }
+
+    submitNewTask() {
+        this.boardHttpService.submitTask(this.boardModel.task.request);
+    }
 }

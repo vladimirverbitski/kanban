@@ -1,7 +1,5 @@
 export class BoardModel {
 
-    _task;
-
     init(task) {
         this._task = task;
     }

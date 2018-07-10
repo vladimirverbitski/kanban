@@ -22,11 +22,9 @@ export class BoardHttpService {
             .then(response => response.data);
     }
 
-    submitTask(request, taskId) {
-        if (taskId == undefined) {
-            return this.$http
-                .post('/api/tasks', request)
-                .then(response => response.data)
-        }
+    submitTask(request) {
+        return this.$http
+            .post('/api/tasks', request)
+            .then(response => response.data);
     }
 }

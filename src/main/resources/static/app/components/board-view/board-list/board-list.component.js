@@ -2,6 +2,9 @@ import template from "./board-list.html";
 
 export const BoardListComponent = {
     template,
+    bindings: {
+        task: '<'
+    },
     controller: class BoardListController {
 
         constructor(BoardService, BoardHttpService, BoardModel) {
@@ -33,8 +36,8 @@ export const BoardListComponent = {
             this.isVisible = this.isVisible ? false : true;
         }
 
-        submitNewClaim() {
-            this.boardHttpService.submitTask(this.createClaimModel.claim.request);
+        submitNewTask() {
+            this.boardHttpService.submitTask(this.boardModel.task.request);
         }
 
     }
