@@ -124,6 +124,15 @@ footer {
   color: #333;
 }
 
+.create-task .panel-footer {
+  padding: 5px 15px;
+}
+
+.create-task .panel-footer .btn {
+  padding: 5px 10px;
+  width: 100%;
+}
+
 .create-task__title input {
   margin-bottom: 10px;
 }

@@ -1,10 +1,8 @@
 import template from "./board-list.html";
+import {Task} from "../task";
 
 export const BoardListComponent = {
     template,
-    bindings: {
-        task: '<'
-    },
     controller: class BoardListController {
 
         constructor(BoardService, BoardHttpService, BoardModel) {
@@ -32,12 +30,17 @@ export const BoardListComponent = {
                 .then(response => this.catList = response);
         }
 
-        openTaskForm() {
-            this.isVisible = this.isVisible ? false : true;
+        openTaskForm(category) {
+            this.isVisible = category;
         }
 
-        submitNewTask() {
-            this.boardHttpService.submitTask(this.boardModel.task.request);
+        addTask(category) {
+            this.isVisible = true;
+            this.taskList.push(new Task(category));
+        }
+
+        submitNewTask(task) {
+            this.boardHttpService.submitTask(task);
         }
 
     }
