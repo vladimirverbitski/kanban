@@ -16,19 +16,19 @@
                             </div>
                         </div>
                         <div class="panel panel-primary create-task" ng-if="!taskInfo.id">
-                            <div class="form-group">
+                            <div class="form-group" ng-form="createTask">
                                 <div class="panel-heading">
                                     <div class="create-task__title ">
-                                        <input name="formTaskTitle" type="text" class="form-control" ng-model="taskInfo.title" placeholder="Task name..." required>
+                                        <input name="title" type="text" class="form-control" ng-model="taskInfo.title" placeholder="Task name..." required>
                                     </div>
                                 </div>
                                 <div class="panel-body">
                                     <div class="create-task__description">
-                                        <textarea name="formTaskDescription" ng-model="taskInfo.description" placeholder="Task description..." required></textarea>
+                                        <textarea name="description" ng-model="taskInfo.description" placeholder="Task description..." required></textarea>
                                     </div>
                                 </div>
                                 <div class="panel-footer">
-                                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo)">Add task</button>
+                                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo, createTask)">Add task</button>
                                 </div>
                             </div>
                         </div>

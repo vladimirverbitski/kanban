@@ -39,8 +39,15 @@ export const BoardListComponent = {
             this.taskList.push(new Task(category));
         }
 
-        submitNewTask(task) {
-            this.boardHttpService.submitTask(task);
+        submitNewTask(task, form) {
+            if(form.$valid) {
+                return this.boardHttpService.submitTask(task).then(
+                    this.boardService.loadTasks()
+                        .then(
+                            response => this.taskList = response
+                        )
+                );
+            }
         }
 
     }
