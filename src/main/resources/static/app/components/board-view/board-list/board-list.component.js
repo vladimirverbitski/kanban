@@ -12,7 +12,6 @@ export const BoardListComponent = {
             this.boardModel = BoardModel;
             this.taskList = [];
             this.catList = [];
-            this.isVisible = false;
         }
 
         $onInit() {
@@ -30,24 +29,20 @@ export const BoardListComponent = {
                 .then(response => this.catList = response);
         }
 
-        openTaskForm(category) {
-            this.isVisible = category;
-        }
-
         addTask(category) {
-            this.isVisible = true;
+            this.taskList = this.taskList.filter(t => t.id);
             this.taskList.push(new Task(category));
         }
 
-        submitNewTask(task, form) {
-            if(form.$valid) {
-                return this.boardHttpService.submitTask(task).then(
+        submitNewTask(task) {
+            return this.boardHttpService.submitTask(task).then(
+                () => {
                     this.boardService.loadTasks()
                         .then(
                             response => this.taskList = response
                         )
-                );
-            }
+                }
+            );
         }
 
     }

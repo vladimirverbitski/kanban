@@ -5,7 +5,7 @@
                 <h3 class="board-view__column-name">{{category.title}}</h3>
             </div>
             <div ui-tree-nodes ng-model="$ctrl.boardService.selectedField">
-                <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.taskList" ng-if="category.id.toString() === taskInfo.category">
+                <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.taskList track by taskInfo.id" ng-if="category.id.toString() === taskInfo.category">
                     <div ui-tree-handle>
                         <div class="panel panel-primary" ng-if="taskInfo.id">
                             <div class="panel-heading">
@@ -28,14 +28,14 @@
                                     </div>
                                 </div>
                                 <div class="panel-footer">
-                                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo, createTask)">Add task</button>
+                                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo)" ng-disabled="createForm.$invalid">Add task</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12" ng-show="!$ctrl.isVisible && category.id">
+            <div class="col-md-12">
                 <button class="board-view__add-button board-view__add-button-white" ng-click="$ctrl.addTask(category.id)">Add task</button>
             </div>
         </div>
