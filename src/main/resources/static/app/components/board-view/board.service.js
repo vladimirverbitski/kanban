@@ -35,6 +35,6 @@ export class BoardService {
     }
 
     submitNewTask() {
-        this.boardHttpService.submitTask(this.boardModel.task.request);
+        this.boardHttpService.submitBoard(this.boardModel.task.request);
     }
 }

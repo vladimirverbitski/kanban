@@ -1,8 +1,26 @@
-<div class="col-md-2" ng-repeat="category in $ctrl.catList">
-    <div class="board-view__column">
+<div class="col-md-2 custom-col-padding" ng-repeat="category in $ctrl.catList">
+    <div class="board-view__column" ng-if="category.id">
         <div class="row" ui-tree="treeOptions" data-drag-enabled="tree.enabled" data-max-depth="5" data-drag-delay="500">
             <div class="col-md-12">
-                <h3 class="board-view__column-name">{{category.title}}</h3>
+                <div class="board-view__header">
+                    <div class="board-view__column-name">
+                        <h3>{{category.title}}</h3>
+                    </div>
+                    <div class="board-view__delete-board">
+                        <a href ui-sref-active="active"
+                           class="have-drop">
+                            <span class="glyphicon glyphicon-option-vertical" ng-click="showMenu = !showMenu"></span>
+                            <div class="header-menu-drop" ng-show="showMenu">
+                                <div ui-sref="dashboard"
+                                     ui-sref-active="active">Delete
+                                </div>
+                                <div ui-sref="history"
+                                     ui-sref-active="active">Rename
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div ui-tree-nodes ng-model="$ctrl.boardService.selectedField">
                 <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.taskList track by taskInfo.id" ng-if="category.id.toString() === taskInfo.category">
@@ -40,9 +58,19 @@
             </div>
         </div>
     </div>
+    <div class="board-view__column" ng-if="!category.id" ng-form="createBoard">
+        <div class="row" ui-tree="treeOptions" data-drag-enabled="tree.enabled" data-max-depth="5" data-drag-delay="500">
+            <div class="col-md-12">
+                <h3 class="board-view__column-name">
+                    <input name="title" type="text" class="form-control" ng-model="category.title" placeholder="Board name..." required>
+                </h3>
+                <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewBoard(category)" ng-disabled="createBoard.$invalid">Add board</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="col-md-2">
     <div class="board-view__add-board">
-        <button class="board-view__add-button board-view__add-button-gray">Add board</button>
+        <button class="board-view__add-button board-view__add-button-gray" ng-click="$ctrl.addBoard()">Add board</button>
     </div>
 </div>

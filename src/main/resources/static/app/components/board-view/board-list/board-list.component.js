@@ -1,5 +1,6 @@
 import template from "./board-list.html";
 import {Task} from "../task";
+import {Category} from "../category";
 
 export const BoardListComponent = {
     template,
@@ -12,6 +13,7 @@ export const BoardListComponent = {
             this.boardModel = BoardModel;
             this.taskList = [];
             this.catList = [];
+            this.boardMenu = false;
         }
 
         $onInit() {
@@ -40,6 +42,22 @@ export const BoardListComponent = {
                     this.boardService.loadTasks()
                         .then(
                             response => this.taskList = response
+                        )
+                }
+            );
+        }
+
+        addBoard() {
+            this.catList = this.catList.filter(t => t.id);
+            this.catList.push(new Category());
+        }
+
+        submitNewBoard(board) {
+            return this.boardHttpService.submitBoard(board).then(
+                () => {
+                    this.boardService.loadCats()
+                        .then(
+                            response => this.catList = response
                         )
                 }
             );

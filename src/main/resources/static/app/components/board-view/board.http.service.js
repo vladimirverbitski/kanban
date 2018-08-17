@@ -7,7 +7,7 @@ export class BoardHttpService {
         this.$http = $http;
     }
 
-    postCategory(request) {
+    submitBoard(request) {
         return this.$http.post('/api/categories', request)
             .then(response => response.data);
     }
