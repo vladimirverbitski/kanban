@@ -1,6 +1,6 @@
-<div ui-tree>
+<div ui-tree data-dropzone-enabled="true">
     <div ui-tree-nodes="" ng-model="$ctrl.catList">
-        <div class="col-md-2 custom-col-padding" ui-tree-node ng-repeat="category in $ctrl.catList">
+        <div class="col-md-2 custom-col-padding" data-dropzone-enabled="true" ui-tree-node ng-repeat="category in $ctrl.catList">
             <div class="board-view__column" ng-if="category.id">
                 <div class="row">
                     <div class="col-md-12">
@@ -39,8 +39,6 @@
                                     <div class="panel-heading">
                                         <div class="create-task__title ">
                                             <input name="title" type="text" class="form-control" ng-model="taskInfo.title" placeholder="Task name..." required>
-                                            <input name="nodes" type="text" class="form-control" ng-model="taskInfo.nodes" hidden>
-
                                         </div>
                                     </div>
                                     <div class="panel-body">
