@@ -14,12 +14,15 @@ public class TaskDto {
 
     private String category;
 
+    private String nodes;
+
 
     public Task createEntity() {
         Task task = new Task();
         task.setTitle(this.title);
         task.setDescription(this.description);
         task.setCategory(this.category);
+        task.setNodes(this.nodes);
         return task;
     }
 
@@ -46,4 +49,8 @@ public class TaskDto {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public String getNodes() { return nodes; }
+
+    public void setNodes(String nodes) { this.nodes = nodes; }
 }
