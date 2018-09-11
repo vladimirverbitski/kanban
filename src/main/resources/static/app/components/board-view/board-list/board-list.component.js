@@ -14,6 +14,14 @@ export const BoardListComponent = {
             this.taskList = [];
             this.catList = [];
             this.boardMenu = false;
+            this.treeOptions = {
+                accept: function(sourceNode, destNodes, destIndex) {
+                    return true;
+                },
+                dragMove: function(event) {
+                    console.log(event);
+                }
+            };
         }
 
         $onInit() {
