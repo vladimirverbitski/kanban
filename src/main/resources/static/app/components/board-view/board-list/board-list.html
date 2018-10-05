@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="panel-footer">
-                                <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo)" ng-disabled="createForm.$invalid">Add task</button>
+                                <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewTask(taskInfo); activeForm = true;" ng-disabled="createForm.$invalid">Add task</button>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-md-12">
-                <button class="board-view__add-button board-view__add-button-white" ng-click="$ctrl.addTask(category.id)">Add task</button>
+                <button class="board-view__add-button board-view__add-button-white" ng-click="$ctrl.addTask(category.id)" ng-if="!activeForm">Add task</button>
             </div>
         </div>
     </div>

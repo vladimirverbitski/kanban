@@ -28,10 +28,22 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getTasks());
     }
 
+    @GetMapping("/drop")
+    public ResponseEntity<?> dropAllTasks() {
+        taskService.dropAllTasks();
+        return ResponseEntity.ok().build();
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTaskById(@PathVariable Long id) {
         return ResponseEntity.ok(taskService.getTaskById(id));
+    }
+
+    @GetMapping("/{id}/delete")
+    public ResponseEntity<?> deleteTaskById(@PathVariable Long id) {
+        taskService.deleteTaskById(id);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping()
@@ -40,6 +52,5 @@ public class TaskController {
         return ResponseEntity.created(
                 buildLocation(String.valueOf(task.getId()))
         ).build();
-
     }
 }
