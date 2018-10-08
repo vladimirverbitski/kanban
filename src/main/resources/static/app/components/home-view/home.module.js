@@ -1,19 +1,19 @@
 import 'angular';
 import uiRouter from '@uirouter/angularjs';
-import {InfoComponent} from './info.component';
+import {HomeComponent} from './home.component';
 
-export const InfoModule = angular
-    .module('info', [
+export const HomeModule = angular
+    .module('home', [
         uiRouter
     ])
-    .component('info', InfoComponent)
+    .component('home', HomeComponent)
     .config(($stateProvider, $urlRouterProvider) => {
         'ngInject';
         $stateProvider
-            .state('info', {
+            .state('home', {
                 parent: 'app',
-                url: 'info',
-                component: 'info'
+                url: 'home',
+                component: 'home'
             });
         $urlRouterProvider.otherwise('/');
     })

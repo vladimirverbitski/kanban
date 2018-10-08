@@ -1,39 +1,65 @@
-@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 html, body {
   height: 100%;
 }
 
-header {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+body {
+  background: #f1f2f7;
+  display: table;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  width: 100%;
 }
 
 .navbar {
-  margin-bottom: 0;
+  background: #272c33;
+  border-radius: 0;
+  border: none;
+  display: block;
+  margin: 0;
+  margin-bottom: 100px;
+  padding: 0;
 }
 
-ui-view {
-  flex: 1 0 auto;
+.navbar .navbar-nav li {
+    width: 100%;
 }
 
-footer {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+.navbar .navbar-nav li > a {
+    background: none !important;
+    color: #c8c9ce !important;
+    display: inline-block;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    line-height: 30px;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
 }
 
-.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
+.navbar .navbar-nav li > a .menu-icon {
+    color: #8b939b;
+    float: left;
+    margin-top: 8px;
+    width: 55px;
+    text-align: left;
+    z-index: 9;
 }
+
+.navbar .navbar-nav li.active .menu-icon,
+.navbar .navbar-nav li:hover .toggle_nav_button:before,
+.navbar .navbar-nav li .toggle_nav_button.nav-open:before {
+    color: #fff !important;
+}
+
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:focus,
+.navbar .navbar-nav > .active > a:hover {
+    color: #d7d9e3 !important;
+}
+
 
 .board-view {
   padding: 60px 0;
@@ -248,4 +274,34 @@ footer {
 .board-view__column .angular-ui-tree-placeholder {
   padding-right: 15px;
   padding-left: 15px;
+}
+
+header.left-panel {
+  background: #272c33;
+  display: table-cell;
+  height: 100vh;
+  min-height: 100%;
+  padding: 0 25px;
+  vertical-align: top;
+  width: 280px;
+  transition: width 0.3s ease;
+}
+
+.open header.left-panel {
+  max-width: 70px;
+  width: 70px;
+}
+
+.right-panel {
+  display: table-cell;
+  padding-left: 0 !important;
+  -webkit-transition: all .35s ease;
+  -moz-transition: all .35s ease;
+  -ms-transition: all .35s ease;
+  -o-transition: all .35s ease;
+  transition: all .35s ease;
+}
+
+.open .right-panel {
+  margin-left: -210px;
 }

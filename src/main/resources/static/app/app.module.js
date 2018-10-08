@@ -25,7 +25,7 @@ export const AppModule = angular
         .state('app', {
             url: '/',
             component: 'app',
-            redirectTo: 'info'
+            redirectTo: 'home'
         });
     })
     .name;
