@@ -32,4 +32,10 @@ export class BoardHttpService {
         return this.$http.get(`/api/tasks/${id}/delete`)
             .then(response => response.data);
     }
+
+    updateTask(request, id) {
+        return this.$http
+            .put(`/api/tasks/${id}`, request)
+            .then(response => response.data);
+    }
 }

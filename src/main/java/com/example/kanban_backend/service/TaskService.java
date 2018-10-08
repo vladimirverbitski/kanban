@@ -7,6 +7,7 @@ package com.example.kanban_backend.service;
 
 import com.example.kanban_backend.domain.Task;
 import com.example.kanban_backend.repository.TaskRepository;
+import com.example.kanban_backend.web.dto.TaskDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,14 @@ public class TaskService {
 
     public void dropAllTasks() {
         taskRepository.deleteAll();
+    }
+
+    public void updateTask(Long id, TaskDto taskDto) {
+        Task taskToUpdate = taskRepository.getOne(id);
+        taskToUpdate.setTitle(taskDto.getTitle());
+        taskToUpdate.setDescription(taskDto.getDescription());
+        taskToUpdate.setCategory(taskDto.getCategory());
+        taskRepository.save(taskToUpdate);
     }
 
 }

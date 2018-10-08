@@ -22,7 +22,6 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-
     @GetMapping
     public ResponseEntity<?> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
@@ -33,7 +32,6 @@ public class TaskController {
         taskService.dropAllTasks();
         return ResponseEntity.ok().build();
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTaskById(@PathVariable Long id) {
@@ -52,5 +50,11 @@ public class TaskController {
         return ResponseEntity.created(
                 buildLocation(String.valueOf(task.getId()))
         ).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateTask(@PathVariable Long id, @RequestBody TaskDto taskDto) {
+        taskService.updateTask(id, taskDto);
+        return ResponseEntity.ok().build();
     }
 }

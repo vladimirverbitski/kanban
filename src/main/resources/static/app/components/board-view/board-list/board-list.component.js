@@ -97,8 +97,17 @@ export const BoardListComponent = {
             this.taskList.map(task => {
                 if (task.id === taskId && task.category !== catId.toString()) {
                     task.category = catId;
+
+                    return this.boardHttpService.updateTask(task, task.id).then(
+                        () => {
+                            this.boardService.loadTasks()
+                                .then(
+                                    response => this.taskList = response
+                                )
+                        }
+                    );
                 }
-            })
+            });
         }
 
     }

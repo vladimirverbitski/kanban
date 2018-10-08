@@ -7,18 +7,8 @@ export class BoardService {
         this._selectedFields = [];
     }
 
-    loadCats() {
-        return this.boardHttpService.getCats()
-            .then(response => this._categoryList = response);
-    }
-
     get categoryList() {
         return this._categoryList;
-    }
-
-    loadTasks() {
-        return this.boardHttpService.getTasks()
-            .then(response => this._taskList = response);
     }
 
     get taskList() {
@@ -27,6 +17,16 @@ export class BoardService {
 
     get selectedField() {
         return this._selectedFields;
+    }
+
+    loadTasks() {
+        return this.boardHttpService.getTasks()
+            .then(response => this._taskList = response);
+    }
+
+    loadCats() {
+        return this.boardHttpService.getCats()
+            .then(response => this._categoryList = response);
     }
 
     removeSelectedField(field) {
