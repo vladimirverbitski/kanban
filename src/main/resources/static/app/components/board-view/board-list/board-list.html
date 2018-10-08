@@ -1,31 +1,31 @@
-<div  ui-tree data-clone-enabled="true" ng-model="$ctrl.catList">
-    <div class="col-md-2 custom-col-padding" ng-repeat="category in $ctrl.catList">
-        <div class="board-view__column" ng-if="category.id">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="board-view__header">
-                        <div class="board-view__column-name">
-                            <h3>{{category.title}}</h3>
-                        </div>
-                        <div class="board-view__delete-board">
-                            <a href ui-sref-active="active"
-                               class="have-drop">
-                                <span class="glyphicon glyphicon-option-vertical" ng-click="showMenu = !showMenu"></span>
-                                <div class="header-menu-drop" ng-show="showMenu">
-                                    <div ui-sref="dashboard"
-                                         ui-sref-active="active">Delete
-                                    </div>
-                                    <div ui-sref="history"
-                                         ui-sref-active="active">Rename
-                                    </div>
+<div class="col-md-2 custom-col-padding" ng-repeat="category in $ctrl.catList">
+    <div class="board-view__column" ng-if="category.id">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="board-view__header">
+                    <div class="board-view__column-name">
+                        <h3>{{category.title}}</h3>
+                    </div>
+                    <div class="board-view__delete-board">
+                        <a href ui-sref-active="active"
+                           class="have-drop">
+                            <span class="glyphicon glyphicon-option-vertical" ng-click="showMenu = !showMenu"></span>
+                            <div class="header-menu-drop" ng-show="showMenu">
+                                <div ui-sref="dashboard"
+                                     ui-sref-active="active">Delete
                                 </div>
-                            </a>
-                        </div>
+                                <div ui-sref="history"
+                                     ui-sref-active="active">Rename
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <div ui-tree-nodes ng-model="$ctrl.taskList" id="{{category.id}}">
-                    <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in $ctrl.taskList" ng-if="category.id.toString() === taskInfo.category">
+            <div ui-tree="$ctrl.treeOptions" data-max-depth="5">
+                <div ui-tree-nodes ng-model="category.tasks">
+                    <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in category.tasks" ng-if="category.id.toString() === taskInfo.category">
                         <div class="panel panel-primary" ng-if="taskInfo.id">
                             <div class="panel-heading" ui-tree-handle>
                                 <div class="panel-heading__title">
@@ -64,14 +64,14 @@
                 </div>
             </div>
         </div>
-        <div class="board-view__column" ng-if="!category.id" ng-form="createBoard">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="board-view__column-name">
-                        <input name="title" type="text" class="form-control" ng-model="category.title" placeholder="Board name..." required>
-                    </h3>
-                    <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewBoard(category)" ng-disabled="createBoard.$invalid">Add board</button>
-                </div>
+    </div>
+    <div class="board-view__column" ng-if="!category.id" ng-form="createBoard">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="board-view__column-name">
+                    <input name="title" type="text" class="form-control" ng-model="category.title" placeholder="Board name..." required>
+                </h3>
+                <button type="submit" class="btn btn-primary" ng-click="$ctrl.submitNewBoard(category)" ng-disabled="createBoard.$invalid">Add board</button>
             </div>
         </div>
     </div>

@@ -15,8 +15,11 @@ export const BoardListComponent = {
             this.catList = [];
             this.boardMenu = false;
             this.treeOptions = {
-                accept: (sourceNode, destNodes, destIndex) => {
-                    return true;
+                dropped: (event) => {
+                    let sourceModel = event.source.nodeScope.$modelValue.id;
+                    const destModel = event.dest.nodesScope.$parent.$parent.$parent.category.id.toString();
+
+                    this.changeCategory(sourceModel, destModel);
                 }
             };
         }
@@ -34,11 +37,17 @@ export const BoardListComponent = {
         _initCats() {
             return this.boardService.loadCats()
                 .then(response => this.catList = response)
-                .then(
-                    this.taskList.map(task => {
-                        console.log(task.category);
+                .then(() => {
+                    this.catList.map(cat => {
+                        cat.tasks = [];
+                        this.taskList.map(task => {
+                                if (cat.id.toString() === task.category) {
+                                    cat.tasks = [...cat.tasks, task];
+                                }
+                            }
+                        )
                     })
-                );
+                });
         }
 
         addTask(category) {
@@ -48,6 +57,17 @@ export const BoardListComponent = {
 
         submitNewTask(task) {
             return this.boardHttpService.submitTask(task).then(
+                () => {
+                    this.boardService.loadTasks()
+                        .then(
+                            response => this.taskList = response
+                        )
+                }
+            );
+        }
+
+        removeTask(id) {
+            return this.boardHttpService.removeTask(id).then(
                 () => {
                     this.boardService.loadTasks()
                         .then(
@@ -73,19 +93,12 @@ export const BoardListComponent = {
             );
         }
 
-        removeTask(id) {
-            return this.boardHttpService.removeTask(id).then(
-                () => {
-                    this.boardService.loadTasks()
-                        .then(
-                            response => this.taskList = response
-                        )
+        changeCategory(taskId, catId) {
+            this.taskList.map(task => {
+                if (task.id === taskId && task.category !== catId.toString()) {
+                    task.category = catId;
                 }
-            );
-        }
-
-        sortTask(catList) {
-            console.log(catList.map(cat => cat));
+            })
         }
 
     }

@@ -1,15 +1,10 @@
 import "angular";
-import uiRouter from  '@uirouter/angularjs';
-import {RouterConfig} from "./router.config";
+import "./assets-import";
 
 export const AppConfigModule = angular
     .module('config', [
-        uiRouter,
-        RouterConfig
     ])
-    .config((cfpLoadingBarProvider, $qProvider) => {
+    .config(() => {
         "ngInject";
-        $qProvider.errorOnUnhandledRejections(false);
-        cfpLoadingBarProvider.includeSpinner = false;
     })
     .name;

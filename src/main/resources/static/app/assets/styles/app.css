@@ -243,3 +243,9 @@ footer {
 .panel-heading > div {
   display: inline-block;
 }
+
+.board-view__column .angular-ui-tree-node,
+.board-view__column .angular-ui-tree-placeholder {
+  padding-right: 15px;
+  padding-left: 15px;
+}
