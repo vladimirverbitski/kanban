@@ -14,6 +14,11 @@ export const BoardListComponent = {
             this.taskList = [];
             this.catList = [];
             this.boardMenu = false;
+            this.treeOptions = {
+                accept: (sourceNode, destNodes, destIndex) => {
+                    return true;
+                }
+            };
         }
 
         $onInit() {
@@ -28,7 +33,12 @@ export const BoardListComponent = {
 
         _initCats() {
             return this.boardService.loadCats()
-                .then(response => this.catList = response);
+                .then(response => this.catList = response)
+                .then(
+                    this.taskList.map(task => {
+                        console.log(task.category);
+                    })
+                );
         }
 
         addTask(category) {
@@ -72,6 +82,10 @@ export const BoardListComponent = {
                         )
                 }
             );
+        }
+
+        sortTask(catList) {
+            console.log(catList.map(cat => cat));
         }
 
     }

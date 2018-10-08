@@ -53,6 +53,10 @@ footer {
   transition: box-shadow .25s, -webkit-box-shadow .25s;
 }
 
+.board-view__column .angular-ui-tree-nodes .angular-ui-tree-nodes {
+  padding-left: 0;
+}
+
 .board-view__header {
   margin-bottom: 20px;
   cursor: pointer;
