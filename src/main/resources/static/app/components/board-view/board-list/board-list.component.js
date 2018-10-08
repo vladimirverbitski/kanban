@@ -14,14 +14,6 @@ export const BoardListComponent = {
             this.taskList = [];
             this.catList = [];
             this.boardMenu = false;
-            this.treeOptions = {
-                accept: function(sourceNode, destNodes, destIndex) {
-                    return true;
-                },
-                dragMove: function(event) {
-                    console.log(event);
-                }
-            };
         }
 
         $onInit() {
@@ -66,6 +58,17 @@ export const BoardListComponent = {
                     this.boardService.loadCats()
                         .then(
                             response => this.catList = response
+                        )
+                }
+            );
+        }
+
+        removeTask(id) {
+            return this.boardHttpService.removeTask(id).then(
+                () => {
+                    this.boardService.loadTasks()
+                        .then(
+                            response => this.taskList = response
                         )
                 }
             );

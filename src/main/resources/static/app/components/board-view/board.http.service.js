@@ -27,4 +27,9 @@ export class BoardHttpService {
             .post('/api/tasks', request)
             .then(response => response.data);
     }
+
+    removeTask(id) {
+        return this.$http.get(`/api/tasks/${id}/delete`)
+            .then(response => response.data);
+    }
 }

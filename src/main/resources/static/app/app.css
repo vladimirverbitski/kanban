@@ -235,3 +235,7 @@ footer {
 .header-menu-drop div.active{
   background: #F2f2f2;
 }
+
+.panel-heading > div {
+  display: inline-block;
+}
