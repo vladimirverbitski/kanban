@@ -12,7 +12,7 @@
                             <span class="glyphicon glyphicon-option-vertical" ng-click="showMenu = !showMenu"></span>
                             <div class="header-menu-drop" ng-show="showMenu">
                                 <div ui-sref="dashboard"
-                                     ui-sref-active="active">Delete
+                                     ui-sref-active="active" ng-click="$ctrl.removeBoard(category.id)">Delete
                                 </div>
                                 <div ui-sref="history"
                                      ui-sref-active="active">Rename

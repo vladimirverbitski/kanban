@@ -223,12 +223,20 @@ body {
   content: ' ';
 }
 
+.board-view__delete-board .have-drop .glyphicon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 /*--*/
 
 .header-menu-drop {
   position: absolute;
-  top: 40px;
-  right: -5px;
+  top: 20px;
+  right: 5px;
   z-index: 9;
   min-width: 140px;
   text-align: left;
@@ -238,19 +246,6 @@ body {
   border: 2px solid #f8f8f8;
   -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.3);
   box-shadow: 0 1px 6px rgba(0,0,0,.3);
-}
-
-.header-menu-drop::before {
-  content: '';
-  position: absolute;
-  display: block;
-  height: 0;
-  width: 0;
-  top: -20px;
-  right: 20px;
-  border: 10px solid transparent;
-  border-bottom-color: #ffffff;
-  filter: drop-shadow(0 -3px 1px rgba(0,0,0,.1));
 }
 
 .header-menu-drop div {

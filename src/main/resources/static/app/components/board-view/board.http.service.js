@@ -33,6 +33,11 @@ export class BoardHttpService {
             .then(response => response.data);
     }
 
+    removeBoard(id) {
+        return this.$http.get(`/api/categories/${id}/delete`)
+            .then(response => response.data);
+    }
+
     updateTask(request, id) {
         return this.$http
             .put(`/api/tasks/${id}`, request)

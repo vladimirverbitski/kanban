@@ -79,18 +79,6 @@ export const BoardListComponent = {
             );
         }
 
-        removeTask(id) {
-            return this.boardHttpService.removeTask(id).then(
-                () => {
-                    this.boardService.loadTasks()
-                        .then(
-                            response => this.taskList = response
-                        )
-                        .then( () => this._initCats() )
-                }
-            );
-        }
-
         submitNewBoard(board) {
             return this.boardHttpService.submitBoard(board).then(
                 () => {
@@ -117,6 +105,29 @@ export const BoardListComponent = {
                     );
                 }
             });
+        }
+
+        removeTask(id) {
+            return this.boardHttpService.removeTask(id).then(
+                () => {
+                    this.boardService.loadTasks()
+                        .then(
+                            response => this.taskList = response
+                        )
+                        .then( () => this._initCats() )
+                }
+            );
+        }
+
+        removeBoard(id) {
+            return this.boardHttpService.removeBoard(id).then(
+                () => {
+                    this.boardService.loadCats()
+                        .then(
+                            response => this.catList = response
+                        )
+                }
+            );
         }
 
     }
