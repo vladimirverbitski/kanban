@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div ui-tree="$ctrl.treeOptions" data-max-depth="5" data-dropzoe-enabled="true">
+            <div ui-tree="$ctrl.treeOptions" data-empty-placeholder-enabled="false">
                 <div ui-tree-nodes ng-model="category.tasks">
                     <div class="col-md-12" ui-tree-node ng-repeat="taskInfo in category.tasks" ng-if="category.id.toString() === taskInfo.category">
                         <div class="panel panel-primary" ng-if="taskInfo.id">

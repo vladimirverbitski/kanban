@@ -15,11 +15,17 @@ export const BoardListComponent = {
             this.catList = [];
             this.boardMenu = false;
             this.treeOptions = {
+                accept: (sourceNodeScope, destNodesScope, destIndex) => {
+                    return true;
+                },
                 dropped: (event) => {
                     let sourceModel = event.source.nodeScope.$modelValue.id;
                     const destModel = event.dest.nodesScope.$parent.$parent.$parent.category.id.toString();
 
                     this.changeCategory(sourceModel, destModel);
+                },
+                removed: (node) => {
+                    return node;
                 }
             };
         }
@@ -50,10 +56,16 @@ export const BoardListComponent = {
                 });
         }
 
-        addTask(category) {
-            this.taskList = this.taskList.filter(t => t.id);
-            this.taskList.push(new Task(category));
+        addBoard() {
+            this.catList = this.catList.filter(t => t.id);
+            this.catList.push(new Category());
         }
+
+        addTask(category) {
+            this.catList.filter(cat => cat.tasks.map(t => t.id));
+            this.catList.map(cat => cat.tasks.push(new Task(category)));
+        }
+
 
         submitNewTask(task) {
             return this.boardHttpService.submitTask(task).then(
@@ -62,6 +74,7 @@ export const BoardListComponent = {
                         .then(
                             response => this.taskList = response
                         )
+                        .then( () => this._initCats() )
                 }
             );
         }
@@ -73,13 +86,9 @@ export const BoardListComponent = {
                         .then(
                             response => this.taskList = response
                         )
+                        .then( () => this._initCats() )
                 }
             );
-        }
-
-        addBoard() {
-            this.catList = this.catList.filter(t => t.id);
-            this.catList.push(new Category());
         }
 
         submitNewBoard(board) {

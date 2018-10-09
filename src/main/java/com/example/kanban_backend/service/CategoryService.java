@@ -28,4 +28,8 @@ public class CategoryService {
     public Category createCategory(Category entity) {
         return categoryRepository.save(entity);
     }
+
+    public void deleteCategoryById(Long id) {
+        categoryRepository.deleteById(id);
+    }
 }
